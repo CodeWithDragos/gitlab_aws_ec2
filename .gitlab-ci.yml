@@ -9,7 +9,7 @@ build:
 test:
   stage: test
   script:
-    - npm install
+    - npm run install
     - npm run test
 
 # Job Two for deploy build to server
@@ -27,4 +27,4 @@ deploy:
   script:
     - ssh -i $PRIVATE_KEY ubuntu@$SERVER_IP
     - rsync -zvhr -auv -e "ssh -i $PRIVATE_KEY" . ubuntu@$SERVER_IP:/var/api
-  only: ["master"]
+  only: ["main"]
