@@ -18,8 +18,6 @@ const productList = [
 // middleware: parse the body to json
 app.use(bodyParser.json());
 
-const port = 3000;
-
 // Test
 app.get("/test", (request, response) => {
   response.send("Hello!");
