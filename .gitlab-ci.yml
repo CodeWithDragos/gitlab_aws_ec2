@@ -9,6 +9,7 @@ build:
 test:
   stage: test
   script:
+    - npm install
     - npm run test
 
 # Job Two for deploy build to server
