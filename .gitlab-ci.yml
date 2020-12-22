@@ -1,5 +1,5 @@
 image: node:latest
-stages: ["build", "test", "deploy"]
+stages: ["build", "test", "deploy_aws", "deploy_heroku"]
 
 build:
   stage: build
@@ -13,8 +13,8 @@ test:
     - npm run test
 
 # Job Two for deploy build to server
-deploy:
-  stage: deploy
+deploy_aws:
+  stage: deploy_aws
   before_script:
     - "which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )"
     - eval $(ssh-agent -s)
@@ -31,3 +31,14 @@ deploy:
     - npm install
     - node src
   only: ["main"]
+
+# Job Two for deploy build to server
+deploy_heroku:
+  stage: deploy_heroku
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+    # - dpl --provider=heroku --app=gitlab-ci-python-test-prod --api-key=$HEROKU_PRODUCTION_API_KEY // TODO
+  only:
+    - tags
