@@ -1,0 +1,23 @@
+image: node:latest
+
+test-job1:
+  stage: test
+  script:
+    - npm run test
+
+# Job Two for deploy build to server
+deploy_master:
+  stage: deploy
+  before_script:
+    - "which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )"
+    - eval $(ssh-agent -s)
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - chmod 400 $PRIVATE_KEY
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - apt-get update -y
+    - apt-get -y install rsync
+  script:
+    - ssh -i $PRIVATE_KEY ubuntu@$SERVER_IP
+    - rsync -zvhr -auv -e "ssh -i $PRIVATE_KEY" . ubuntu@$SERVER_IP:/var/api
+  only: ["master"]
