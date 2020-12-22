@@ -20,6 +20,11 @@ app.use(bodyParser.json());
 
 const port = 3000;
 
+// Test
+app.get("/test", (request, response) => {
+  response.send("Hello!");
+});
+
 // POST
 app.post("/products", (request, response) => {
   const product = request.body;
