@@ -25,6 +25,6 @@ deploy:
     - apt-get update -y
     - apt-get -y install rsync
   script:
-    - ssh -i $PRIVATE_KEY ubuntu@$SERVER_IP
+    - ssh -i $PRIVATE_KEY ec2-user@$SERVER_IP
     - rsync -zvhr -auv -e "ssh -i $PRIVATE_KEY" . ubuntu@$SERVER_IP:/var/api
   only: ["main"]
