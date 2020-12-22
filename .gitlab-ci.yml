@@ -25,6 +25,5 @@ deploy:
     - apt-get -y install rsync
   script:
     - chmod 400 $PRIVATE_KEY
-    - ssh -i $PRIVATE_KEY ec2-user@$SERVER_IP
-    - mv -u ./* var/api/
+    - scp -i $PRIVATE_KEY -r ./ ec2-user@$SERVER_IP:/var/api/
   only: ["main"]
