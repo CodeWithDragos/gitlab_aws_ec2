@@ -10,4 +10,5 @@ echo "Running npm install"
 npm install
 
 # start app with pm2
-npm start:production
+echo "Running the app"
+npm run start:production
