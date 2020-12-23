@@ -16,16 +16,25 @@ test:
 deploy_aws:
   stage: deploy_aws
   before_script:
-    - bash pre-deploy.sh
+    - "which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )"
+    - eval $(ssh-agent -s)
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - apt-get update -y
+    - apt-get -y install rsync
+  script:
     - chmod 400 $PRIVATE_KEY
     # clean up
     - ssh -i $PRIVATE_KEY ec2-user@$SERVER_IP 'rm -rf /home/ec2-user/api'
     - ssh -i $PRIVATE_KEY ec2-user@$SERVER_IP 'mkdir /home/ec2-user/api'
     # copy files
-    - tar cf - ./ | ssh -i $PRIVATE_KEY ec2-user@$SERVER_IP tar xfC - /home/ec2-user/api
+    - scp -i $PRIVATE_KEY -r src ec2-user@$SERVER_IP:/home/ec2-user/api
+    - scp -i $PRIVATE_KEY package.json ec2-user@$SERVER_IP:/home/ec2-user/api/package.json
+    - scp -i $PRIVATE_KEY deploy.sh ec2-user@$SERVER_IP:/home/ec2-user/api/deploy.sh
 
     # run the deploy script
-    - ssh -i $PRIVATE_KEY ec2-user@$SERVER_IP 'cd /home/ec2-user/api && bash run_server.sh'
+    - ssh -i $PRIVATE_KEY ec2-user@$SERVER_IP 'cd /home/ec2-user/api && bash deploy.sh'
 
   only: ["main"]
 
