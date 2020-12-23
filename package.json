@@ -13,8 +13,8 @@
   },
   "scripts": {
     "test": "jest --verbose",
-    "start": "node index.js",
-    "start:production": "pm2 start api/src/index.js --name 'app'"
+    "start": "node src/index.js",
+    "start:production": "pm2 start src/index.js --name 'app'"
   },
   "repository": {
     "type": "git",
