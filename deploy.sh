@@ -7,4 +7,4 @@ pm2 stop app
 pm2 delete app
 
 # start app with pm2
-pm2 start src/index.js --name "app"
+pm2 start api/src/index.js --name "app"
