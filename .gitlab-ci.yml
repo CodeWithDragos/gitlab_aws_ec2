@@ -31,6 +31,7 @@ deploy_aws:
     # copy files
     - scp -i $PRIVATE_KEY -r src ec2-user@$SERVER_IP:/home/ec2-user/api
     - scp -i $PRIVATE_KEY package.json ec2-user@$SERVER_IP:/home/ec2-user/api/package.json
+    - scp -i $PRIVATE_KEY -r $ENV_FILE ec2-user@$SERVER_IP:/home/ec2-user/api/.env
     - scp -i $PRIVATE_KEY deploy.sh ec2-user@$SERVER_IP:/home/ec2-user/api/deploy.sh
 
     # run the deploy script
