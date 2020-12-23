@@ -7,4 +7,4 @@ pm2 stop app
 pm2 delete app
 
 # start app with pm2
-sudo pm2 start app.js --name "app"
+sudo pm2 start src/index.js --name "app"
