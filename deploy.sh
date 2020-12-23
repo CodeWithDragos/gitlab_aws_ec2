@@ -1,10 +1,13 @@
-# installing dependencies
-npm install
-npm install pm2 -g
 
 # clean up old app
-pm2 stop app
-pm2 delete app
+pm2 kill
+npm remove pm2 -g
+
+# installing dependencies
+echo "Installing npm2"
+npm install pm2 -g
+echo "Running npm install"
+npm install
 
 # start app with pm2
-pm2 start api/src/index.js --name "app"
+npm start:production
