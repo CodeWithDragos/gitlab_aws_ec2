@@ -7,15 +7,10 @@ Please install dependenies by running:
 `npm install`
 
 ---
-### Complete the REST API
+### Products Api Running on EC2
 
-Add the missing endpoints to complete the REST API for products:
+You can access the live app running [here](http://ec2-35-159-10-98.eu-central-1.compute.amazonaws.com:3000/products-list)
 
-In the [App](/app.js) file:
-1. Add a `POST` endpoint that adds a product to our list
-2. Add a `GET` endpoint under `/product-list` to fetch a list of products
-3. Add a `PUT` endpoint to update products using their `ID`
-4. Add a `DELETE` endpoint with the path `/products/:productId` to delete products by their `ID`
 
 ---
 
