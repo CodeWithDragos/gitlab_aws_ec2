@@ -14,7 +14,7 @@
   "scripts": {
     "test": "jest --verbose",
     "start": "node src/index.js",
-    "start:production": "pm2 start src/index.js --name 'app'"
+    "start:production": "pm2 start src/index.js --name 'app' -f"
   },
   "repository": {
     "type": "git",
