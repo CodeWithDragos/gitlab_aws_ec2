@@ -20,6 +20,9 @@ app.use(bodyParser.json());
 
 // Test
 app.get("/test", (request, response) => {
+  if (process.env.NODE_ENV === "production") {
+    response.send("Hello from production!");
+  }
   response.send("Hello!");
 });
 
