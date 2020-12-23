@@ -34,7 +34,7 @@ deploy_aws:
     - scp -i $PRIVATE_KEY deploy.sh ec2-user@$SERVER_IP:/home/ec2-user/api/deploy.sh
 
     # run the deploy script
-    - ssh -i $PRIVATE_KEY ec2-user@$SERVER_IP '/home/ec2-user/api/deploy.sh'
+    - ssh -i $PRIVATE_KEY ec2-user@$SERVER_IP 'sudo /home/ec2-user/api/deploy.sh'
 
   only: ["main"]
 
