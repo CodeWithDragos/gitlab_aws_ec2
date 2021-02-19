@@ -1,22 +1,24 @@
-# REST API by CodeWithDragos
+# Node.js on AWS with GitLab by CodeWithDragos
 
 ### Getting Started :rocket:
 
-Please install dependenies by running:
+Please install dependencies by running:
 
 `npm install`
 
 ---
-### Products Api Running on EC2
+### Setup
 
-You can access the live app running [here](http://ec2-35-159-10-98.eu-central-1.compute.amazonaws.com:3000/products-list)
+1. Copy the following files / folders in your GitLab project:
+- [package.json](/package.json)
+- [.gitignore](/.gitignore)
+- [deploy.sh](/deploy.sh)
+- [.gitlab-ci.yml](.gitlab-ci.yml)
 
+Folders:
+- [src/](src/)
 
----
-
-#### Hint: You can check your progress by running: 
-
-`npm test`
+2. Push the code in your GitLab repo
 
 ---
 
