@@ -1,12 +1,5 @@
 # Node.js on AWS with GitLab by CodeWithDragos
-
-### Getting Started :rocket:
-
-Please install dependencies by running:
-
-`npm install`
-
----
+--- 
 ### Setup
 
 1. Copy the following files / folders in your GitLab project:
@@ -19,6 +12,20 @@ Folders:
 - [src/](src/)
 
 2. Push the code in your GitLab repo
+
+---
+
+### Getting Started :rocket:
+
+Please install dependencies by running:
+
+`npm install`
+
+### Run the project
+
+You can run the project with:
+
+`npm start`
 
 ---
 
