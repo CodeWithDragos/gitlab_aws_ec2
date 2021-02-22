@@ -2,16 +2,9 @@
 --- 
 ### Setup
 
-1. Copy the following files / folders in your GitLab project:
-- [package.json](/package.json)
-- [.gitignore](/.gitignore)
-- [deploy.sh](/deploy.sh)
-- [.gitlab-ci.yml](.gitlab-ci.yml)
+1. Click in "Use this template" to clone this repository in your GitHub
 
-Folders:
-- [src/](src/)
-
-2. Push the code in your GitLab repo
+2. Create a GitLab project based on the repository you have created
 
 ---
 
