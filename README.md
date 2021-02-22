@@ -1,5 +1,5 @@
 # Node.js on AWS with GitLab by CodeWithDragos
---- 
+
 ### Setup
 
 1. Click in "Use this template" to clone this repository in your GitHub
