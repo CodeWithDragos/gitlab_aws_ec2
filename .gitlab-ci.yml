@@ -2,7 +2,7 @@ image: node:latest
 stages: ["build", "test", "deploy_aws", "deploy_heroku"]
 
 # WARNING
-# This pipelin needs the folowing variables set up to work:
+# This pipeline needs the following variables set up to work:
 # SERVER_IP =  // the ec2 instance public ip or domain
 # SECRET_KEY = // the key to connect to the ec2 instance
 
